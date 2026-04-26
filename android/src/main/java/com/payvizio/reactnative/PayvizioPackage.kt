@@ -1,0 +1,14 @@
+package com.payvizio.reactnative
+
+import com.facebook.react.ReactPackage
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.uimanager.ViewManager
+
+class PayvizioPackage : ReactPackage {
+    override fun createNativeModules(ctx: ReactApplicationContext): MutableList<NativeModule> =
+        mutableListOf(PayvizioModule(ctx))
+
+    override fun createViewManagers(ctx: ReactApplicationContext): MutableList<ViewManager<*, *>> =
+        mutableListOf()
+}
