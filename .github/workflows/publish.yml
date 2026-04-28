@@ -1,0 +1,32 @@
+name: Publish React Native SDK
+
+# Tag-driven npm publish for @payvizio/react-native. Required secret: NPM_TOKEN.
+# Cocoapods consumers (iOS) read the .podspec from the npm tarball — no extra
+# Cocoapods publish step is required when the JS package is the source of truth.
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+      - run: npm test --if-present
+      - name: Verify package version matches tag
+        run: |
+          PKG="$(node -p "require('./package.json').version")"
+          TAG="${GITHUB_REF_NAME#v}"
+          [ "$PKG" = "$TAG" ] || { echo "Version mismatch: pkg=$PKG tag=$TAG"; exit 1; }
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
