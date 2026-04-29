@@ -1,7 +1,13 @@
 {
   "name": "@payvizio/react-native",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React Native wrapper around the Payvizio native Android and iOS SDKs.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/payvizio-pg/payvizio-react-native-sdk.git"
+  },
+  "homepage": "https://docs.payvizio.com",
+  "bugs": "https://github.com/payvizio-pg/payvizio-react-native-sdk/issues",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "files": [
