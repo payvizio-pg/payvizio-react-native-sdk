@@ -1,6 +1,6 @@
 {
   "name": "@payvizio/react-native",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React Native wrapper around the Payvizio native Android and iOS SDKs.",
   "main": "src/index.js",
   "types": "src/index.d.ts",
@@ -11,7 +11,14 @@
     "PayvizioReactNative.podspec",
     "README.md"
   ],
-  "keywords": ["payvizio", "payments", "upi", "card", "checkout", "react-native"],
+  "keywords": [
+    "payvizio",
+    "payments",
+    "upi",
+    "card",
+    "checkout",
+    "react-native"
+  ],
   "license": "Apache-2.0",
   "peerDependencies": {
     "react-native": ">=0.72.0"
